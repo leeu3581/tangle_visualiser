@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Tangle document</title>
+
+    <!-- Tangle -->
+    <script type="text/javascript" src="Tangle.js"></script>
+
+    <!-- TangleKit (optional) -->
+    <link rel="stylesheet" href="TangleKit/TangleKit.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="TangleKit/mootools.js"></script>
+    <script type="text/javascript" src="TangleKit/sprintf.js"></script>
+    <script type="text/javascript" src="TangleKit/BVTouchable.js"></script>
+    <script type="text/javascript" src="TangleKit/TangleKit.js"></script>
+
+    <!-- example -->
+    <script type="text/javascript">
+
+        function setUpTangle () {
+
+            var colors = document.getElementById("colors");
+            // var audio1 = new Audio('audio/dua1.m4a');
+            var dis = new Tangle(colors, {
+              initialize: function(){
+                this.n = 1;
+                this.value = 0;
+                this.imgvalue = 0;
+              },
+              update: function(){
+                this.value = this.n -1;
+                this.imgvalue = this.n-1;
+                playMus(this.value);
+              }
+            })
+        }
+
+        var listMus = [new Audio('audio/dua1.m4a'),new Audio('audio/dua2.m4a'),new Audio('audio/dua3.m4a'), new Audio('audio/dua4.m4a'),new Audio('audio/dua5.m4a'),new Audio('audio/dua6.m4a'),new Audio('audio/dua7.m4a'),new Audio('audio/dua8.m4a'),new Audio('audio/dua9.m4a') ]
+
+        function playMus(number){
+          audioTemp = listMus[number];
+          var i;
+          for (i = 0; i < listMus.length; i++) {
+            if(i !=number){
+              listMus[i].pause();
+            }
+          }
+          audioTemp.play();
+        }
+
+    </script>
+</head>
+
+<body onload="setUpTangle();">
+    <h2>New Rulz</h2><img src="dualipa.png" alt="" id="dualipa">
+
+    <div id="colors">
+      <p>Chorus: <span class="TKAdjustableNumber" id ="chorus" data-var="n" data-max="9"> </span></p>
+      <div class="TKSwitch" data-var="value">
+        <p class="disco" id="one">One, don't pick up the phone, You know he's only calling 'cause he's drunk and alone</p>
+        <p class="disco" id="two" >Two, don't let him in
+You'll have to kick him out again</p>
+        <p class="disco" id="three">Three, don't be his friend
+You know you're gonna wake up in his bed in the morning</p>
+        <p class="disco" id="four" >And if you're under him, you ain't gettin' over him
+</p>
+        <p class="disco" id="five" >I got new rules, I count 'em</p>
+        <p class="disco" id="six" >I got new rules, I count 'em</p>
+        <p class="disco" id="seven" >I gotta tell them to myself</p>
+        <p class="disco" id="eight" >I got new rules, I count 'em</p>
+        <p class="disco" id="eight" >I gotta tell them to myself</p>
+      </div>
+      <div class="TKSwitch" data-var="imgvalue" id="animalholder">
+        <img src="dua1.jpeg" alt="" class="animal">
+        <img src="dua2.jpeg" alt="" class="animal">
+        <img src="dua3.jpeg" alt="" class="animal">
+        <img src="dua4.jpeg" alt="" class="animal">
+        <img src="dua5.jpeg" alt="" class="animal">
+        <img src="dua6.jpeg" alt="" class="animal">
+        <img src="dua7.jpeg" alt="" class="animal">
+        <img src="dua10.png" alt="" class="animal">
+        <img src="dua11.jpeg" alt="" class="animal">
+      </div>
+
+    </div>
+
+</body>
+
+
+</html>
